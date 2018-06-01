@@ -106,7 +106,8 @@ TESTS := $(shell find $(TESTDIR) -type f -name *.$(SRCEXT))
 TOBJECTS := $(patsubst $(TESTDIR)/%,$(BUILDDIR)/%,$(TESTS:.$(SRCEXT)=.test.o))
 TTARGETS := $(patsubst $(TESTDIR)/%,$(BINDIR)/%,$(TESTS:.$(SRCEXT)=.test.elf))
 
-
+#Prevents intermediate deletion
+.SECONDARY:
 
 ./$(BUILDDIR)/%.o: ./$(SRCDIR)/%.$(SRCEXT)
 	@echo " Building file: '$<'..."
