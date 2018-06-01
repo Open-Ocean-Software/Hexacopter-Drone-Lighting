@@ -1,0 +1,13 @@
+
+#ifndef FLOODLIGHTS_H
+#define FLOODLIGHTS_H
+
+#define FLOODLIGHTS_CAMERA
+#define FLOODLIGHTS_LANDING
+
+
+
+#define FLOODLIGHTS_PORT
+#define FLOODLIGHTS_REG
+
+#endif
