@@ -4,6 +4,9 @@
 
 #include <avr/io.h>
 
+/////////////////
+// Add PinOuts //
+/////////////////
 #include "PinOuts/Floodlights.h"
 #include "PinOuts/Lasers.h"
 #include "PinOuts/LEDs.h"
