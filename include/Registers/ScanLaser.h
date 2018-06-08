@@ -1,6 +1,6 @@
 
-#ifndef SCANLASER_H
-#define SCANLASER_H
+#ifndef R_SCANLASER_H
+#define R_SCANLASER_H
 
 #define REGID_SCANLASER 0x08
 #define REG_SCANLASER_DEFAULT 0x00

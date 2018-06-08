@@ -7,10 +7,9 @@ struct Register
     unsigned char Id;
     unsigned char Value;
     unsigned char DefaultValue;
-    void (*Callback) (unsigned char id, unsigned char value);
 };
 
-extern struct Register Registers [];
+struct Register InitializeRegister (unsigned char id, unsigned char defaultval);
 
 unsigned char RegisterSetValue (unsigned char id, unsigned char value);
 unsigned char RegisterGetValue (unsigned char id, unsigned char *value);

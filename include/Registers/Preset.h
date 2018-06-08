@@ -1,6 +1,6 @@
 
-#ifndef PRESET_H
-#define PRESET_H
+#ifndef R_PRESET_H
+#define R_PRESET_H
 
 #define REGID_PRESET 0x02
 #define REG_PRESET_DEFAULT 0x00

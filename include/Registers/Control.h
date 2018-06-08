@@ -1,6 +1,6 @@
 
-#ifndef CONTROL_H
-#define CONTROL_H
+#ifndef R_CONTROL_H
+#define R_CONTROL_H
 
 #define REGID_CONTROL 0x01
 #define REG_CONTROL_DEFAULT 0x0F
