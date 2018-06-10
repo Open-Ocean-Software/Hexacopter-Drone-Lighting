@@ -10,4 +10,9 @@
 #define Reg_Preset_SetValue(v) (RegisterSetValue(REGID_PRESET, v))
 #define Reg_Preset_Reset() (RegisterSet(REGID_PRESET, REG_PRESET_DEFAULT))
 
+#define REG_PRESET_FLAG_PERSIST 0x80
+#define Reg_Preset_GetPersist() (RegisterFlagGetValue(REGID_PRESET, REG_PRESET_FLAG_PERSIST) != 0x0)
+#define Reg_Preset_SetPersist(e) (RegisterFlagSet(REGID_PRESET, REG_PRESET_FLAG_PERSIST, (e != 0x0)))
+#define Reg_Preset_Toggle_Persist() (RegisterFlagToggle(REGID_PRESET, REG_PRESET_FLAG_PERSIST))
+
 #endif
