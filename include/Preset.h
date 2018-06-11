@@ -7,7 +7,7 @@ typedef void (*PresetCallback) (double t);
 struct Preset
 {
     unsigned char Id;
-    double ElapsedDuration;
+    double StartTime;
     double MaxDuration;
     PresetCallback Callback;
 };
