@@ -14,7 +14,6 @@ struct Register InitializeRegister (unsigned char id, unsigned char defaultval);
 unsigned char RegisterSetValue (unsigned char id, unsigned char value);
 unsigned char RegisterGetValue (unsigned char id, unsigned char *value);
 unsigned char RegisterGetValue (unsigned char id);
-unsigned char RegisterExists (unsigned char id);
 
 struct Register RegisterSet (unsigned char id, unsigned char value);
 struct Register RegisterGet (unsigned char id);
