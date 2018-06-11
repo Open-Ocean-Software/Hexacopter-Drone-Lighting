@@ -38,5 +38,6 @@
 extern struct Preset Presets [];
 
 struct Preset FindPreset (unsigned char id);
+struct Preset PresetExists (unsigned char id);
 
 #endif
