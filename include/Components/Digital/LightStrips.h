@@ -7,7 +7,7 @@
 #define MASK_LIGHTSTRIP_DATA
 #define HANDLER_LIGHTSTRIP_DATA &Handler_LightStripData
 
-void Handler_LightStripData (void);
+void Handler_LightStripData (struct DigitalComponent comp);
 
 
 

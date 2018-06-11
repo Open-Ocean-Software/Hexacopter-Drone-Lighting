@@ -4,7 +4,7 @@
 
 #include "../Component.h"
 
-typedef void (*DigitalHandler) (void);
+typedef void (*DigitalHandler) (struct DigitalComponent comp);
 
 struct DigitalComponent
 {

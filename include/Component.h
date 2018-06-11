@@ -10,8 +10,6 @@ enum ComponentType
     PWM
 };
 
-typedef void (*ComponentHandler) (struct Component *comp);
-
 struct Component
 {
     enum ComponentType Type;

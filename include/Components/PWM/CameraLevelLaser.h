@@ -7,6 +7,6 @@
 #define MASK_LASER_CAMERALEVEL
 #define HANDLER_LASER_CAMERALEVEL &Handler_LaserCameraLevel
 
-void Handler_LaserCameraLevel (unsigned char t);
+void Handler_LaserCameraLevel (struct PWMComponent comp, unsigned char t);
 
 #endif
