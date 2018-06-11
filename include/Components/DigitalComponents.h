@@ -2,13 +2,13 @@
 #ifndef DIGITALCOMPONENTS_H
 #define DIGITALCOMPONENTS_H
 
-#import "DigitalComponent.h"
-#import "../Registers.h"
+#include "DigitalComponent.h"
+#include "../Registers.h"
 
 ////////////////////////////
 // Add Digital Components //
 ////////////////////////////
-#import "Digital/LightStrips.h"
+#include "Digital/LightStrips.h"
 
 /////////////////////////////////
 // Register Digital Components //

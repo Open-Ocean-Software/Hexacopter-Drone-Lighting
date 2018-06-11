@@ -2,7 +2,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#import "Register.h"
+#include "Register.h"
 
 enum ComponentType
 {

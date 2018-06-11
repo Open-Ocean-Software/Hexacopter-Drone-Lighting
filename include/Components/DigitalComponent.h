@@ -2,7 +2,7 @@
 #ifndef DIGITALCOMPONENT_H
 #define DIGITALCOMPONENT_H
 
-#import "../Component.h"
+#include "../Component.h"
 
 typedef void (*DigitalHandler) (void);
 

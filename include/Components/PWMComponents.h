@@ -2,18 +2,18 @@
 #ifndef PWMCOMPONENTS_H
 #define PWMCOMPONENTS_H
 
-#import "PWMComponent.h"
-#import "../Registers.h"
+#include "PWMComponent.h"
+#include "../Registers.h"
 
 ////////////////////////
 // Add PWM Components //
 ////////////////////////
-#import "PWM/CameraFloodlight.h"
-#import "PWM/CameraLevelLaser.h"
-#import "PWM/CameraPointLaser.h"
-#import "PWM/LandingFloodlight.h"
-#import "PWM/ScanLaser.h"
-#import "PWM/StatusNotify.h"
+#include "PWM/CameraFloodlight.h"
+#include "PWM/CameraLevelLaser.h"
+#include "PWM/CameraPointLaser.h"
+#include "PWM/LandingFloodlight.h"
+#include "PWM/ScanLaser.h"
+#include "PWM/StatusNotify.h"
 
 /////////////////////////////
 // Register PWM Components //
