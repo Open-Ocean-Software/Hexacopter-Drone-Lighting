@@ -1,20 +1,71 @@
 
 #include "Controller.h"
 #include "Config.h"
+#include "Registers.h"
+#include "Components.h"
+#include "Presets.h"
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <avr/delay.h>
+
+
+void executeComponents (void)
+{
+    for (unsigned char i = 0; i < COMPONENTLIST_COUNT; i++) {
+        struct Component comp = Components[i];
+        if (comp->Type == Digital) {
+            struct DigitalComponent dcomp = (struct DigitalComponent)comp;
+            dcomp->Handler(dcomp, ReadStopwatch());
+        } else if (comp->Type == PWM) {
+            struct PWMComponent pcomp = (struct PWMComponent)comp;
+            pcomp->Handler(pcomp, ReadStopwatch());
+        }
+    }
+}
+
+void executePresets (void)
+{
+    static unsigned char presetCodeSave = 0x00;
+    unsigned char presetCode = Reg_Preset_GetValue();
+    if (presetCode == 0x00) {
+        return;
+    }
+    if (!PresetExists(presetCode)) {
+        return;
+    }
+
+    struct Preset preset = FindPreset(presetCode);
+    if (presetCode != presetCodeSave) {
+        preset->StartTime = ReadStopwatch();
+    }
+    preset->Callback(ReadStopwatch());
+
+    if (ReadStopwatch() - preset->StartTime >= preset->MaxDuration) {
+        Reg_Preset_SetValue(0x00);
+    }
+    presetCodeSave = presetCode;
+}
 
 void Activity (void)
 {
-
+    while (Reg_Control_GetEnabled()) {
+        ReadCommunications();
+        executeComponents();
+        executePresets();
+    }
 }
 
 void Standby (void)
 {
-
+    while (!Reg_Control_GetEnabled()) {
+        _delay_ms(CONFIG_CONTROLLER_STANDBYTIMEOUT);
+        ReadCommunications();
+    }
 }
 
+
+double elapsedTime;
 
 void InitializeStopwatch (void)
 {
@@ -24,22 +75,24 @@ void InitializeStopwatch (void)
     TCCR0 &= (1 << CS02);
     TCCR0 |= (1 << CS01) | (1 << CS00);
     // Fc = 0.001s
-    TCNT0 = (unsigned char)((double)CONFIG_F_CPU / 64.0 / 1000.0)
+    TCNT0 = (unsigned char)((double)CONFIG_F_CPU / (double)CONFIG_CONTROLLER_SWPRESCALER / (double)CONFIG_CONTROLLER_SWFREQUENCY);
     // Enable global interrupts
     sei();
+
+    elapsedTime = 0.0;
 }
 
 void StopwatchHandler (void)
 {
-
+    elapsedTime += 1.0 / (double)CONFIG_CONTROLLER_SWFREQUENCY;
 }
 
-void ReadStopwatch (void)
+double ReadStopwatch (void)
 {
-
+    return elapsedTime;
 }
 
 void ResetStopwatch (void)
 {
-
+    elapsedTime = 0.0;
 }
