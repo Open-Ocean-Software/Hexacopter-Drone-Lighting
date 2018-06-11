@@ -351,19 +351,19 @@ to consult other component code):
      #define MASK_MYCOMPONENT 0x01
      ```
    - Define a handler address macro.  This is the address of the function called
-     on every system cycle to execute the necessary actions.  It takes no
-     arguments and returns void for digital components, and it takes the elapsed
-     duty in milliseconds as the only argument and returns void for PWM
-     components.
+     on every system cycle to execute the necessary actions.  It takes the
+     active component as an argument and returns void for digital components,
+     and it takes the active component and elapsed duty in milliseconds as the
+     arguments and returns void for PWM components.
      - Example (digital):
      ```c
      #define HANDLER_MYCOMPONENT &Handler_MyComponent
-     void Handler_MyComponent (void);
+     void Handler_MyComponent (struct Component comp);
      ```
      - Example (PWM):
      ```c
      #define HANDLER_MYCOMPONENT &Handler_MyComponent
-     void Handler_MyComponent (unsigned char t);
+     void Handler_MyComponent (struct Component comp, unsigned char t);
      ```
 2. Add and register your component in "/include/Components/DigitalComponents.h"
    for digital components or "/include/Components/PWMComponents.h" for PWM
