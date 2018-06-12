@@ -37,7 +37,18 @@
 
 extern struct Preset Presets [];
 
+/**
+ * Gets the first preset matching the ID.
+ * @param  id The ID to match.
+ * @return    A pointer to the preset.
+ */
 struct Preset *FindPreset (unsigned char id);
+
+/**
+ * Checks if the preset exists.
+ * @param  id The ID to match
+ * @return    A success value.
+ */
 unsigned char PresetExists (unsigned char id);
 
 #endif

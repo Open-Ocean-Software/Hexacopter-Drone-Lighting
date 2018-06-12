@@ -38,7 +38,18 @@
 
 extern struct Register Registers [];
 
+/**
+ * Gets the first register with the ID.
+ * @param  id The ID to match.
+ * @return    A pointer to the register.
+ */
 struct Register *FindRegister (unsigned char id);
+
+/**
+ * Checks if the register exists.
+ * @param  id The ID to match.
+ * @return    A success value.
+ */
 unsigned char RegisterExists (unsigned char id);
 
 #endif
