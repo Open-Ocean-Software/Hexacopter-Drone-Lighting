@@ -3,24 +3,35 @@
 #include "Registers.h"
 #include "Config.h"
 
-#include <stdio.h>
 #include <avr/io.h>
 
-int spiSendByte (char data, FILE *stream)
+void spiSendByte (char data)
 {
     SPDR = data;
     while (!(SPSR & (1 << SPIF)));
-    return 0;
 }
 
-int spiReceiveByte (FILE *stream)
+void spiSendBytes (unsigned char *data)
+{
+    for (unsigned char i = 0; i < CONFIG_COMMUNICATIONS_MESSAGELENGTH; i++) {
+        spiSendByte((char)data[i]);
+    }
+}
+
+unsigned char spiReceiveByte (void)
 {
     while (!(SPSR & (1 << SPIF)));
     return SPDR;
 }
 
-FILE SPI_OStream = FDEV_SETUP_STREAM(spiSendByte, NULL, _FDEV_SETUP_WRITE);
-FILE SPI_IStream = FDEV_SETUP_STREAM(NULL, spiReceiveByte, _FDEV_SETUP_READ);
+void spiReceiveBytes (unsigned char *data)
+{
+    unsigned char str [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
+    for (unsigned char i = 0; i < CONFIG_COMMUNICATIONS_MESSAGELENGTH; i++) {
+        str[i] = spiReceiveByte();
+    }
+    data = str;
+}
 
 void spiInitialize (void)
 {
@@ -28,15 +39,12 @@ void spiInitialize (void)
     DDR_SPI = (1 << DD_MISO);
     // Enable SPI
     SPCR = (1 << SPE);
-
-    stdout = &SPI_OStream;
-    stdin = &SPI_IStream;
 }
 
 unsigned char ReadCommunications (void)
 {
     char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
-    gets(buffer);
+    spiReceiveBytes(buffer);
 
     unsigned char addr = (buffer[0] & CONFIG_COMMUNICATIONS_ADDRESSMASK);
     unsigned char util = buffer[1];
@@ -66,6 +74,6 @@ unsigned char WriteCommunications (unsigned char *val)
 {
     char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
     memcpy(buffer, val, CONFIG_COMMUNICATIONS_MESSAGELENGTH);
-    puts(buffer);
+    spiSendBytes(buffer);
     return 0x01;
 }
