@@ -19,10 +19,10 @@ struct Component
     unsigned char Mask;
 };
 
-struct Component InitializeIComponent (enum ComponentType type, struct Register reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
-struct Component InitializeOComponent (enum ComponentType type, struct Register reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
+struct Component InitializeIComponent (enum ComponentType type, struct Register *reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
+struct Component InitializeOComponent (enum ComponentType type, struct Register *reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
 
-struct Component SetComponent (struct Component *comp, unsigned char mask);
-struct Component ToggleComponent (struct Component *comp, unsigned char mask);
+struct Component *SetComponent (struct Component *comp, unsigned char mask);
+struct Component *ToggleComponent (struct Component *comp, unsigned char mask);
 
 #endif

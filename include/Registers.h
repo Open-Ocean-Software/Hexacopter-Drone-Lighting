@@ -38,7 +38,7 @@
 
 extern struct Register Registers [];
 
-struct Register FindRegister (unsigned char id);
+struct Register *FindRegister (unsigned char id);
 unsigned char RegisterExists (unsigned char id);
 
 #endif

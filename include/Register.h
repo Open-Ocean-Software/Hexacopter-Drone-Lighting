@@ -47,21 +47,21 @@ unsigned char RegisterGetValue (unsigned char id);
  * @param  value The value of the register.
  * @return       The active register.
  */
-struct Register RegisterSet (unsigned char id, unsigned char value);
+struct Register *RegisterSet (unsigned char id, unsigned char value);
 
 /**
  * Gets the register.
  * @param  id The ID of the register.
  * @return    The active register.
  */
-struct Register RegisterGet (unsigned char id);
+struct Register *RegisterGet (unsigned char id);
 
 /**
  * Resets the register.
  * @param  id The ID of the register.
  * @return    The active register.
  */
-struct Register RegisterReset (unsigned char id);
+struct Register *RegisterReset (unsigned char id);
 
 
 /**
@@ -70,7 +70,7 @@ struct Register RegisterReset (unsigned char id);
  * @param  mask The mask to be toggled.
  * @return      The active register.
  */
-struct Register RegisterFlagToggle (unsigned char id, unsigned char mask);
+struct Register *RegisterFlagToggle (unsigned char id, unsigned char mask);
 
 /**
  * Sets the register's flags.
@@ -79,7 +79,7 @@ struct Register RegisterFlagToggle (unsigned char id, unsigned char mask);
  * @param  value The value to be set.
  * @return       The active register.
  */
-struct Register RegisterFlagSet (unsigned char id, unsigned char mask, unsigned char value);
+struct Register *RegisterFlagSet (unsigned char id, unsigned char mask, unsigned char value);
 
 /**
  * Gets the register's flags.
@@ -88,7 +88,7 @@ struct Register RegisterFlagSet (unsigned char id, unsigned char mask, unsigned 
  * @param  value A reference to the value.
  * @return       The active register.
  */
-struct Register RegisterFlagGet (unsigned char id, unsigned char mask, unsigned char *value);
+struct Register *RegisterFlagGet (unsigned char id, unsigned char mask, unsigned char *value);
 
 /**
  * Gets the value of the register flags.
@@ -96,6 +96,6 @@ struct Register RegisterFlagGet (unsigned char id, unsigned char mask, unsigned 
  * @param  mask The mask to be returned.
  * @return      The value of the register.
  */
-unsigned char RegisterFlagGetValue (unsigned char id, unsigned char mask);
+unsigned char *RegisterFlagGetValue (unsigned char id, unsigned char mask);
 
 #endif

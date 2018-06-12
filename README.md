@@ -385,7 +385,7 @@ to consult other component code):
      ```c
      #define COMPONENTLIST_DIGITAL  BLAH..., \
                                     BLAH..., \
-                                    InitializeDigitalComponent(InitializeOComponent(Digital, FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
+                                    InitializeDigitalComponent(InitializeOComponent(Digital, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
                                     BLAH..., \
                                     BLAH...
      ```
@@ -393,7 +393,7 @@ to consult other component code):
      ```c
      #define COMPONENTLIST_PWM   BLAH..., \
                                  BLAH..., \
-                                 InitializePWMComponent(InitializeOComponent(PWM, FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
+                                 InitializePWMComponent(InitializeOComponent(PWM, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
                                  BLAH..., \
                                  BLAH...
      ```

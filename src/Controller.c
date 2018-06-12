@@ -35,13 +35,13 @@ void executePresets (void)
         return;
     }
 
-    struct Preset preset = FindPreset(presetCode);
+    struct Preset *preset = *FindPreset(presetCode);
     if (presetCode != presetCodeSave) {
-        preset->StartTime = ReadStopwatch();
+        (*preset)->StartTime = ReadStopwatch();
     }
-    preset->Callback(ReadStopwatch());
+    (*preset)->Callback(ReadStopwatch());
 
-    if (ReadStopwatch() - preset->StartTime >= preset->MaxDuration) {
+    if (ReadStopwatch() - (*preset)->StartTime >= (*preset)->MaxDuration) {
         Reg_Preset_SetValue(0x00);
     }
     presetCodeSave = presetCode;

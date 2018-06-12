@@ -4,7 +4,7 @@
 
 struct Register InitializeRegister (unsigned char id, unsigned char defaultval)
 {
-    struct Register reg = { id, 0x00, defaultval };
+    struct Register *reg = { id, 0x00, defaultval };
     return reg;
 }
 
@@ -13,8 +13,8 @@ unsigned char RegisterSetValue (unsigned char id, unsigned char value)
     if (!RegisterExists(id)) {
         return 0x00;
     }
-    struct Register reg = FindRegister(id);
-    reg->Value = value;
+    struct Register *reg = *FindRegister(id);
+    (*reg)->Value = value;
     return 0x01;
 }
 
@@ -23,8 +23,8 @@ unsigned char RegisterGetValue (unsigned char id, unsigned char *value)
     if (!RegisterExists(id)) {
         return 0x00;
     }
-    struct Register reg = FindRegister(id);
-    *value = reg->Value;
+    struct Register *reg = *FindRegister(id);
+    *value = (*reg)->Value;
     return 0x01;
 }
 
@@ -33,68 +33,68 @@ unsigned char RegisterGetValue (unsigned char id)
     if (!RegisterExists(id)) {
         return 0x00;
     }
-    struct Register reg = FindRegister(id);
-    return reg->Value;
+    struct Register *reg = *FindRegister(id);
+    return (*reg)->Value;
 }
 
-struct Register RegisterSet (unsigned char id, unsigned char value)
+struct Register *RegisterSet (unsigned char id, unsigned char value)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
-    reg->Value = value;
+    struct Register *reg = *FindRegister(id);
+    (*reg)->Value = value;
     return reg;
 }
 
-struct Register RegisterGet (unsigned char id)
+struct Register *RegisterGet (unsigned char id)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
+    struct Register *reg = *FindRegister(id);
     return reg;
 }
 
-struct Register RegisterReset (unsigned char id)
+struct Register *RegisterReset (unsigned char id)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
-    reg->Value = reg->DefaultValue;
+    struct Register *reg = *FindRegister(id);
+    (*reg)->Value = (*reg)->DefaultValue;
     return reg;
 }
 
-struct Register RegisterFlagToggle (unsigned char id, unsigned char mask)
+struct Register *RegisterFlagToggle (unsigned char id, unsigned char mask)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
-    reg->Value ^= mask;
+    struct Register *reg = *FindRegister(id);
+    (*reg)->Value ^= mask;
     return reg;
 }
 
-struct Register RegisterFlagSet (unsigned char id, unsigned char mask, unsigned char value)
+struct Register *RegisterFlagSet (unsigned char id, unsigned char mask, unsigned char value)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
-    reg->Value &= ~mask;
+    struct Register *reg = *FindRegister(id);
+    (*reg)->Value &= ~mask;
     value &= mask;
-    reg->Value |= value;
+    (*reg)->Value |= value;
     return reg;
 }
 
-struct Register RegisterFlagGet (unsigned char id, unsigned char mask, unsigned char *value)
+struct Register *RegisterFlagGet (unsigned char id, unsigned char mask, unsigned char *value)
 {
     if (!RegisterExists(id)) {
         return NULL;
     }
-    struct Register reg = FindRegister(id);
-    *value = (reg->Value & mask);
+    struct Register *reg = *FindRegister(id);
+    *value = ((*reg)->Value & mask);
     return reg;
 }
 
@@ -103,7 +103,7 @@ unsigned char RegisterFlagGetValue (unsigned char id, unsigned char mask)
     if (!RegisterExists(id)) {
         return 0x00;
     }
-    struct Register reg = FindRegister(id);
-    unsigned char val = (reg->Value & mask);
+    struct Register *reg = *FindRegister(id);
+    unsigned char val = ((*reg)->Value & mask);
     return val;
 }
