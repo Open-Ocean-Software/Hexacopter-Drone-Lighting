@@ -4,6 +4,9 @@
 
 #include "Component.h"
 
+#include <avr/io.h>
+
+
 ////////////////////
 // Add Components //
 ////////////////////
