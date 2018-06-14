@@ -12,6 +12,12 @@ struct PWMComponent
     PWMHandler Handler;
 };
 
+/**
+ * Creates a new PWM component with the parameters initialized.
+ * @param  comp    The base component
+ * @param  handler The handler pointer to be called on system cycles
+ * @return         The initialized PWM component
+ */
 struct PWMComponent InitializePWMComponent (struct Component comp, PWMHandler handler);
 
 #endif

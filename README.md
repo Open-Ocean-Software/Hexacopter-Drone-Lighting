@@ -419,5 +419,15 @@ to consult other component code):
    - Add 1 to the `COMPONENTLIST_DIGITAL_COUNT` macro for digital components or
      `COMPONENTLIST_PWM_COUNT` macro for PWM components.  This keeps track of
      the number of components.
-3. The component should now automatically handle changes in the register with
+3. Implement the handler function.
+   - Implement the `Handler_MyComponent` function you defined in the header file.
+   - The function is executed on every system cycle.
+   - It is usually helpful to store the register's current value in
+     `Component.SavedValue` for reference in the next cycle.
+   - For PWM components, a duty cycle helper is available for reference in
+     "include/Helpers/PWMHelper.h"
+     - The `PWMHandlerHelper` function can be executed in a PWM component's
+       handler function.  Directly pass the arguments down to `PWMHandlerHelper`
+       in your handler function to execute the default duty cycle algorithm.
+4. The component should now automatically handle changes in the register with
      the handler you defined.

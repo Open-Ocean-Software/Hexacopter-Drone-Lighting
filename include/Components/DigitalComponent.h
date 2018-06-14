@@ -12,6 +12,12 @@ struct DigitalComponent
     DigitalHandler Handler;
 };
 
-struct InitializeDigitalComponent (struct Component comp, DigitalHandler handler);
+/**
+ * Creates a new digital component with the parameters initialized.
+ * @param  comp    The base component
+ * @param  handler The handler pointer triggered on system cycles
+ * @return         The initialized digital component
+ */
+struct DigitalComponent InitializeDigitalComponent (struct Component comp, DigitalHandler handler);
 
 #endif
