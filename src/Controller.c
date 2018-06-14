@@ -27,7 +27,7 @@ void executeComponents (void)
 void executePresets (void)
 {
     static unsigned char presetCodeSave = 0x00;
-    unsigned char presetCode = Reg_Preset_GetValue();
+    unsigned char presetCode = Reg_Preset_GetCode();
     if (presetCode == 0x00) {
         return;
     }
@@ -42,7 +42,7 @@ void executePresets (void)
     (*preset)->Callback(ReadStopwatch());
 
     if (ReadStopwatch() - (*preset)->StartTime >= (*preset)->MaxDuration) {
-        Reg_Preset_SetValue(0x00);
+        Reg_Preset_SetCode(0x00);
     }
     presetCodeSave = presetCode;
 }
