@@ -5,6 +5,8 @@
 #include "PWMComponent.h"
 #include "../Registers.h"
 
+#include <avr/io.h>
+
 ////////////////////////
 // Add PWM Components //
 ////////////////////////

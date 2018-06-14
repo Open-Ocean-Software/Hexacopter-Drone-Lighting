@@ -99,73 +99,92 @@ Code in "Registers/Preset.h"
   - The preset selection code.
   - Selects the current light preset based upon the selection code.
 
-### Light Strips (03H)
-The register that controls the light strip colors.
+### Emphasis Light Strips Red (03H)
+The register that controls the emphasis light strips' red color.
 Code in "Registers/LightStrips.h"
-- 0: Emphasis Red (r/w)
-  - The red value of the emphasis light strips.
-- 1: Emphasis Green (r/w)
-  - The green value of the emphasis light strips.
-- 2: Emphasis Blue (r/w)
-  - The blue value of the emphasis light strips.
-- 3: Background Red (r/w)
-  - The red value of the background light strips.
-- 4: Background Green (r/w)
-  - The green value of the background light strips.
-- 5: Background Blue (r/w)
-  - The blue value of the background light strips.
-- 6-7: Reserved (r)
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the red component of the corresponding LED.
 
-### Camera Floodlight (04H)
+### Emphasis Light Strips Green (04H)
+The register that controls the emphasis light strips' green color.
+Code in "Registers/LightStrips.h"
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the green component of the corresponding LED.
+
+### Emphasis Light Strips Blue (05H)
+The register that controls the emphasis light strips' blue color.
+Code in "Registers/LightStrips.h"
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the blue component of the corresponding LED.
+
+### Background Light Strips Red (06H)
+The register that controls the background light strips' red color.
+Code in "Registers/LightStrips.h"
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the red component of the corresponding LED.
+
+### Background Light Strips Green (07H)
+The register that controls the background light strips' green color.
+Code in "Registers/LightStrips.h"
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the green component of the corresponding LED.
+
+### Background Light Strips Blue (08H)
+The register that controls the background light strips' blue color.
+Code in "Registers/LightStrips.h"
+- 0-7: Activity Code (r/w)
+  - Each bit flag controls the blue component of the corresponding LED.
+
+### Camera Floodlight (09H)
 The register that controls the alpha for the camera floodlight.
 Code in "Registers/CameraFloodlight.h"
 - 0-7: Alpha (r/w)
   - The brightness of the camera floodlight.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Landing Gear Floodlight (05H)
+### Landing Gear Floodlight (0AH)
 The register that controls the alpha for the landing gear floodlight.
 Code in "Registers/LandingFloodlight.h"
 - 0-7: Alpha (r/w)
   - The brightness of the landing gear floodlight.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Camera Point Laser (06H)
+### Camera Point Laser (0BH)
 The register that controls the alpha for the camera point laser.
 Code in "Registers/CameraPointLaser.h"
 - 0-7: Alpha (r/w)
   - The brightness of the camera point laser.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Camera Level Laser (07H)
+### Camera Level Laser (0CH)
 The register that controls the alpha for the camera level laser.
 Code in "Registers/CameraLevelLaser.h"
 - 0-7: Alpha (r/w)
   - The brightness of the camera level laser.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Scan Laser (08H)
+### Scan Laser (0DH)
 The register that controls the alpha for the scan laser.
 Code in "Registers/ScanLaser.h"
 - 0-7: Alpha (r/w)
   - The brightness of the scan laser.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Status Notify R (09H)
+### Status Notify R (0EH)
 The register that controls the alpha for the status notify LED's red component.
 Code in "Registers/StatusNotify.h"
 - 0-7: Alpha (r/w)
   - The brightness of the status notify LED's red component.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Status Notify G (0AH)
+### Status Notify G (0FH)
 The register that controls the alpha for the status notify LED's green component.
 Code in "Registers/StatusNotify.h"
   - 0-7: Alpha (r/w)
   - The brightness of the status notify LED's green component.
   - Brightness is determined by `(VALUE / 255) * 100%`
 
-### Status Notify B (0BH)
+### Status Notify B (10H)
 The register that controls the alpha for the status notify LED's blue component.
 Code in "Registers/StatusNotify.h"
   - 0-7: Alpha (r/w)

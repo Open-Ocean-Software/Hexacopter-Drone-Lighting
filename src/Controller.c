@@ -16,7 +16,7 @@ void executeComponents (void)
         struct Component comp = Components[i];
         if (comp->Type == Digital) {
             struct DigitalComponent dcomp = (struct DigitalComponent)comp;
-            dcomp->Handler(dcomp, ReadStopwatch());
+            dcomp->Handler(dcomp);
         } else if (comp->Type == PWM) {
             struct PWMComponent pcomp = (struct PWMComponent)comp;
             pcomp->Handler(pcomp, ReadStopwatch());

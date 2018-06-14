@@ -7,6 +7,6 @@
 #define MASK_FLOODLIGHT_CAMERA
 #define HANDLER_FLOODLIGHT_CAMERA &Handler_FloodlightCamera
 
-void Handler_FloodlightCamera (struct PWMComponent comp, unsigned char t);
+void Handler_FloodlightCamera (struct PWMComponent *comp, unsigned char t);
 
 #endif

@@ -2,7 +2,7 @@
 #ifndef R_CAMERALEVELLASER_H
 #define R_CAMERALEVELLASER_H
 
-#define REGID_CAMLEVELLASER 0x07
+#define REGID_CAMLEVELLASER 0x0C
 #define REG_CAMLEVELLASER_DEFAULT 0x00
 #define Reg_CamLevelLaser_Get() (RegisterGet(REGID_CAMLEVELLASER))
 #define Reg_CamLevelLaser_GetValue() (RegisterGetValue(REGID_CAMLEVELLASER))

@@ -2,7 +2,7 @@
 #ifndef R_STATUSNOTIFY_H
 #define R_STATUSNOTIFY_H
 
-#define REGID_STATNOTIFYR 0x09
+#define REGID_STATNOTIFYR 0x0E
 #define REG_STATNOTIFYR_DEFAULT 0x00
 #define Reg_StatNotifyR_Get() (RegisterGet(REGID_STATNOTIFYR))
 #define Reg_StatNotifyR_GetValue() (RegisterGetValue(REGID_STATNOTIFYR))
@@ -12,7 +12,7 @@
 
 
 
-#define REGID_STATNOTIFYG 0x0A
+#define REGID_STATNOTIFYG 0x0F
 #define REG_STATNOTIFYG_DEFAULT 0x00
 #define Reg_StatNotifyG_Get() (RegisterGet(REGID_STATNOTIFYG))
 #define Reg_StatNotifyG_GetValue() (RegisterGetValue(REGID_STATNOTIFYG))
@@ -22,7 +22,7 @@
 
 
 
-#define REGID_STATNOTIFYB 0x0B
+#define REGID_STATNOTIFYB 0x10
 #define REG_STATNOTIFYB_DEFAULT 0x00
 #define Reg_StatNotifyB_Get() (RegisterGet(REGID_STATNOTIFYB))
 #define Reg_StatNotifyB_GetValue() (RegisterGetValue(REGID_STATNOTIFYB))

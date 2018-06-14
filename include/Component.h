@@ -17,6 +17,7 @@ struct Component
     volatile unsigned char *DDRegister;
     volatile unsigned char *Port;
     unsigned char Mask;
+    unsigned char SavedValue;
 };
 
 /**

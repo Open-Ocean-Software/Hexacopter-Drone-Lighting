@@ -7,6 +7,6 @@
 #define MASK_LASER_SCAN
 #define HANDLER_LASER_SCAN &Handler_LaserScan
 
-void Handler_LaserScan (struct PWMComponent comp, unsigned char t);
+void Handler_LaserScan (struct PWMComponent *comp, unsigned char t);
 
 #endif

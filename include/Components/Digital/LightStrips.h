@@ -5,42 +5,47 @@
 #define DDR_LIGHTSTRIP_DATA
 #define PORT_LIGHTSTRIP_DATA
 #define MASK_LIGHTSTRIP_DATA
-#define HANDLER_LIGHTSTRIP_DATA &Handler_LightStripData
-
-void Handler_LightStripData (struct DigitalComponent comp);
-
+#define HANDLER_LIGHTSTRIP_DATA &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISR
 #define PORT_LIGHTSTRIP_EMPHASISR
 #define MASK_LIGHTSTRIP_EMPHASISR
+#define HANDLER_LIGHTSTRIP_EMPHASISR &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISG
 #define PORT_LIGHTSTRIP_EMPHASISG
 #define MASK_LIGHTSTRIP_EMPHASISG
+#define HANDLER_LIGHTSTRIP_EMPHASISG &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISB
 #define PORT_LIGHTSTRIP_EMPHASISB
 #define MASK_LIGHTSTRIP_EMPHASISB
-
-
-
+#define HANDLER_LIGHTSTRIP_EMPHASISB &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDR
 #define PORT_LIGHTSTRIP_BACKGROUNDR
 #define MASK_LIGHTSTRIP_BACKGROUNDR
+#define HANDLER_LIGHTSTRIP_BACKGROUNDR &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDG
 #define PORT_LIGHTSTRIP_BACKGROUNDG
 #define MASK_LIGHTSTRIP_BACKGROUNDG
+#define HANDLER_LIGHTSTRIP_BACKGROUNDG &Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDB
 #define PORT_LIGHTSTRIP_BACKGROUNDB
 #define MASK_LIGHTSTRIP_BACKGROUNDB
+#define HANDLER_LIGHTSTRIP_BACKGROUNDB &Handler_LightStrip_Select
+
+
+
+void Handler_LightStrip_Data (struct DigitalComponent *comp);
+void Handler_LightStrip_Select (struct DigitalComponent *comp);
 
 #endif

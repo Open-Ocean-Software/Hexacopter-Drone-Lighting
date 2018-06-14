@@ -7,6 +7,6 @@
 #define MASK_FLOODLIGHT_LANDING
 #define HANDLER_FLOODLIGHT_LANDING &Handler_FloodlightLanding
 
-void Handler_FloodlightLanding (struct PWMComponent comp, unsigned char t);
+void Handler_FloodlightLanding (struct PWMComponent *comp, unsigned char t);
 
 #endif

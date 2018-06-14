@@ -2,7 +2,7 @@
 #ifndef R_SCANLASER_H
 #define R_SCANLASER_H
 
-#define REGID_SCANLASER 0x08
+#define REGID_SCANLASER 0x0D
 #define REG_SCANLASER_DEFAULT 0x00
 #define Reg_ScanLaser_Get() (RegisterGet(REGID_SCANLASER))
 #define Reg_ScanLaser_GetValue() (RegisterGetValue(REGID_SCANLASER))

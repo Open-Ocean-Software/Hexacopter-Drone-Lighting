@@ -4,7 +4,7 @@
 
 #include "../Component.h"
 
-typedef void (*PWMHandler) (struct PWMComponent comp, unsigned char t);
+typedef void (*PWMHandler) (struct PWMComponent *comp, unsigned char t);
 
 struct PWMComponent
 {

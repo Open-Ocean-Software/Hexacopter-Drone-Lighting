@@ -7,6 +7,6 @@
 #define MASK_LASER_CAMERAPOINT
 #define HANDLER_LASER_CAMERAPOINT &Handler_LaserCameraPoint
 
-void Handler_LaserCameraPoint (struct PWMComponent comp, unsigned char t);
+void Handler_LaserCameraPoint (struct PWMComponent *comp, unsigned char t);
 
 #endif

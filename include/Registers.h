@@ -22,7 +22,12 @@
 ////////////////////////
 #define REGISTERLIST    InitializeRegister(REGID_CONTROL, REG_CONTROL_DEFAULT), \
                         InitializeRegister(REGID_PRESET, REG_PRESET_DEFAULT), \
-                        InitializeRegister(REGID_LIGHTSTRIPS, REG_LIGHTSTRIPS_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_ERED, REG_LIGHTSTRIPS_ERED_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_EGREEN, REG_LIGHTSTRIPS_EGREEN_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_EBLUE, REG_LIGHTSTRIPS_EBLUE_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_BRED, REG_LIGHTSTRIPS_BRED_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_BGREEN, REG_LIGHTSTRIPS_BGREEN_DEFAULT), \
+                        InitializeRegister(REGID_LIGHTSTRIPS_BBLUE, REG_LIGHTSTRIPS_BBLUE_DEFAULT), \
                         InitializeRegister(REGID_CAMLIGHT, REG_CAMLIGHT_DEFAULT), \
                         InitializeRegister(REGID_LANDLIGHT, REG_LANDLIGHT_DEFAULT), \
                         InitializeRegister(REGID_CAMPOINTLASER, REG_CAMPOINTLASER_DEFAULT), \
@@ -32,7 +37,7 @@
                         InitializeRegister(REGID_STATNOTIFYG, REG_STATNOTIFYG_DEFAULT), \
                         InitializeRegister(REGID_STATNOTIFYB, REG_STATNOTIFYB_DEFAULT)
 
-#define REGISTERLIST_COUNT 11
+#define REGISTERLIST_COUNT 16
 
 
 

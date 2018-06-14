@@ -2,7 +2,7 @@
 #ifndef R_LANDINGFLOODLIGHT_H
 #define R_LANDINGFLOODLIGHT_H
 
-#define REGID_LANDLIGHT 0x05
+#define REGID_LANDLIGHT 0x0A
 #define REG_LANDLIGHT_DEFAULT 0x00
 #define Reg_LandLight_Get() (RegisterGet(REGID_LANDLIGHT))
 #define Reg_LandLight_GetValue() (RegisterGetValue(REGID_LANDLIGHT))

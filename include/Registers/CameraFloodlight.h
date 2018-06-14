@@ -2,7 +2,7 @@
 #ifndef R_CAMERAFLOODLIGHT_H
 #define R_CAMERAFLOODLIGHT_H
 
-#define REGID_CAMLIGHT 0x04
+#define REGID_CAMLIGHT 0x09
 #define REG_CAMLIGHT_DEFAULT 0x00
 #define Reg_CamLight_Get() (RegisterGet(REGID_CAMLIGHT))
 #define Reg_CamLight_GetValue() (RegisterGetValue(REGID_CAMLIGHT))
