@@ -18,7 +18,7 @@ unsigned char RegisterSetValue (unsigned char id, unsigned char value)
     return 0x01;
 }
 
-unsigned char RegisterGetValue (unsigned char id, unsigned char *value)
+unsigned char TryRegisterGetValue (unsigned char id, unsigned char *value)
 {
     if (!RegisterExists(id)) {
         return 0x00;

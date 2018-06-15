@@ -1,5 +1,6 @@
 
 #include "Controller.h"
+#include <avr/interrupt.h>
 
 int main (void)
 {
@@ -9,6 +10,7 @@ int main (void)
         Standby();
         ResetStopwatch();
     }
+    return 0;
 }
 
 ISR(TIMER0_OVF_vect)
