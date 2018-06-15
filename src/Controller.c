@@ -39,11 +39,15 @@ void executePresets (void)
     if (presetCode != presetCodeSave) {
         (*preset)->StartTime = ReadStopwatch();
     }
-    (*preset)->Callback(ReadStopwatch());
-
     if (ReadStopwatch() - (*preset)->StartTime >= (*preset)->MaxDuration) {
-        Reg_Preset_SetCode(0x00);
+        if (Reg_Preset_GetPersist()) {
+            (*preset)->StartTime = ReadStopwatch();
+        } else {
+            Reg_Preset_SetCode(0x00);
+        }
     }
+
+    (*preset)->Callback(ReadStopwatch());
     presetCodeSave = presetCode;
 }
 

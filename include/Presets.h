@@ -15,7 +15,7 @@
 #include "Presets/Flash.h"
 #include "Presets/Off.h"
 #include "Presets/On.h"
-#include "Presets/Spin.h"
+#include "Presets/Emit.h"
 #include "Presets/Warning.h"
 
 //////////////////////
@@ -23,7 +23,7 @@
 //////////////////////
 #define PRESET_LIST     InitializePreset(PRESET_OFF, PRESET_OFF_DURATION, PRESET_OFF_HANDLER), \
                         InitializePreset(PRESET_ON, PRESET_ON_DURATION, PRESET_ON_HANDLER), \
-                        InitializePreset(PRESET_SPIN, PRESET_SPIN_DURATION, PRESET_SPIN_HANDLER), \
+                        InitializePreset(PRESET_EMIT, PRESET_EMIT_DURATION, PRESET_EMIT_HANDLER), \
                         InitializePreset(PRESET_BOUNCE, PRESET_BOUNCE_DURATION, PRESET_BOUNCE_HANDLER), \
                         InitializePreset(PRESET_FLASH, PRESET_FLASH_DURATION, PRESET_FLASH_HANDLER), \
                         InitializePreset(PRESET_CORRECTED, PRESET_CORRECTED_DURATION, PRESET_CORRECTED_HANDLER), \

@@ -256,15 +256,14 @@ mask, please consult the "Configuration" section.
 ### Vanilla Presets
 - **Off** (ID: 01H; Duration: auto-persist): All off.
 - **On** (ID: 02H; Duration: auto-persist): All on (brightest setting).
-- **Spin** (ID: 03H; Duration: 1.5s): Strips flash consecutively in a circle in
-  blue.
-- **Bounce** (ID: 04H; Duration: 2.0s): Strips flash in an outward direction in
+- **Emit** (ID: 03H; Duration: 2.0s): Strips emit a line of individual colors.
+- **Bounce** (ID: 04H; Duration: 1.0s): Strips flash in an outward direction in
   blue.
 - **Flash** (ID: 05H; Duration: 1.0s): Strips flash 3 times in blue.
 - **Corrected** (ID: 06H; Duration: 1.0s): Strips progressively fill with blue then
   turn green.
 - **Alert** (ID: 07H; Duration: 1.0s): Strips do 3 quick yellow flashes.
-- **Warning** (ID: 08H; Duration: 1.5s): Strips fill and empty 3 times with red and
+- **Warning** (ID: 08H; Duration: 2.0s): Strips fill and empty 3 times with red and
   yellow alternating.
 - **Danger** (ID: 09H; Duration: auto-persist): Strips filled with red alternating
   and flashing.
