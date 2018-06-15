@@ -1,8 +1,9 @@
 
 #include "Components/PWMComponent.h"
 
-struct PWMComponent InitializePWMComponent (struct Component comp, PWMHandler handler)
+struct Component *InitializePWMComponent (struct Component comp, PWMHandler handler)
 {
-    struct PWMComponent c = { comp, handler };
-    return c;
+    struct PWMComponent *c = malloc(sizeof(struct PWMComponent));
+    *c = { comp, handler };
+    return (struct Component *)*c;
 }

@@ -1,7 +1,7 @@
 
 #include "Helpers/PWMHelper.h"
 
-void PWMHandlerHelper (struct PWMComponent *comp, unsigned char t)
+void PWMHandlerHelper (struct Component *comp, unsigned char t)
 {
     struct Component *c = (struct Component *)comp;
     unsigned char regval = *c->*Register->Value;

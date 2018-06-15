@@ -1,5 +1,5 @@
 
-#include "Components/Digital/LightStrips.h"
+#include "Components.h"
 #include "Config.h"
 
 void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char val)
@@ -17,7 +17,7 @@ void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char va
     }
 }
 
-void Handler_LightStrip_Select (struct DigitalComponent *comp)
+void Handler_LightStrip_Select (struct Component *comp)
 {
     struct Component *c = (struct Component *)comp;
     unsigned char regval = *c->*Register->Value;
@@ -27,4 +27,4 @@ void Handler_LightStrip_Select (struct DigitalComponent *comp)
     *c->SavedValue = regval;
 }
 
-void Handler_LightStrip_Data (struct DigitalComponent *comp) { }
+void Handler_LightStrip_Data (struct Component *comp) { }

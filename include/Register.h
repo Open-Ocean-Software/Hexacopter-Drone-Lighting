@@ -31,7 +31,7 @@ unsigned char RegisterSetValue (unsigned char id, unsigned char value);
  * @param  value A reference to the value.
  * @return       The success value.
  */
-unsigned char RegisterGetValue (unsigned char id, unsigned char *value);
+unsigned char TryRegisterGetValue (unsigned char id, unsigned char *value);
 
 /**
  * Get the value of the register.

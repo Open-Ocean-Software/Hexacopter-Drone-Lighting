@@ -4,6 +4,7 @@
 #include "Config.h"
 
 #include <avr/io.h>
+#include <string.h>
 
 void spiSendByte (char data)
 {
@@ -36,14 +37,15 @@ void spiReceiveBytes (unsigned char *data)
 void spiInitialize (void)
 {
     // Set MISO output, all others input.
-    DDR_SPI = (1 << DD_MISO);
+    DDRB |= (1 << PB4);
+    DDRB &= ~((1 << PB2) | (1 << PB3) | (1 << PB5));
     // Enable SPI
     SPCR = (1 << SPE);
 }
 
 unsigned char ReadCommunications (void)
 {
-    char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
+    unsigned char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
     spiReceiveBytes(buffer);
 
     unsigned char addr = (buffer[0] & CONFIG_COMMUNICATIONS_ADDRESSMASK);
@@ -55,7 +57,7 @@ unsigned char ReadCommunications (void)
 
     if ((buffer[0] & CONFIG_COMMUNICATIONS_MODEMASK) == CONFIG_COMMUNICATIONS_READMODE) {
         unsigned char val;
-        if (RegisterGetValue(addr, &val)) {
+        if (TryRegisterGetValue(addr, &val)) {
             unsigned char msg [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
             msg[0] = addr;
             msg[1] = (val & util);
@@ -72,7 +74,7 @@ unsigned char ReadCommunications (void)
 
 unsigned char WriteCommunications (unsigned char *val)
 {
-    char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
+    unsigned char buffer [CONFIG_COMMUNICATIONS_MESSAGELENGTH];
     memcpy(buffer, val, CONFIG_COMMUNICATIONS_MESSAGELENGTH);
     spiSendBytes(buffer);
     return 0x01;

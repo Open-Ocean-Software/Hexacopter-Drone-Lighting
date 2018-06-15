@@ -1,5 +1,5 @@
 
-#include "Components/PWM/CameraFloodlight.h"
+#include "Component.h"
 #include "Helpers/PWMHelper.h"
 
 void Handler_FloodlightCamera (struct PWMComponent *comp, unsigned char t)

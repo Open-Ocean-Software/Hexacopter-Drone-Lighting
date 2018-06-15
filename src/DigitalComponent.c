@@ -1,8 +1,9 @@
 
 #include "Components/DigitalComponent.h"
 
-struct InitializeDigitalComponent (struct Component comp, DigitalHandler handler)
+struct Component *InitializeDigitalComponent (struct Component comp, DigitalHandler handler)
 {
-    struct DigitalComponent c = { comp, handler };
-    return c;
+    struct DigitalComponent *c = malloc(sizeof(struct DigitalComponent));
+    *c = { comp, handler };
+    return (struct Component *)*c;
 }

@@ -4,6 +4,8 @@
 
 #include "Register.h"
 
+#include <stdint.h>
+
 enum ComponentType
 {
     Digital,
@@ -14,8 +16,8 @@ struct Component
 {
     enum ComponentType Type;
     struct Register *Register;
-    volatile unsigned char *DDRegister;
-    volatile unsigned char *Port;
+    volatile uint8_t *DDRegister;
+    volatile uint8_t *Port;
     unsigned char Mask;
     unsigned char SavedValue;
 };
@@ -29,7 +31,7 @@ struct Component
  * @param  mask  The mask of pins to be initialized.
  * @return       The initialized component.
  */
-struct Component InitializeIComponent (enum ComponentType type, struct Register *reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
+struct Component InitializeIComponent (enum ComponentType type, struct Register *reg, volatile uint8_t *ddreg, volatile uint8_t *port, unsigned char mask);
 
 /**
  * Initializes an output component with set properties.
@@ -40,6 +42,6 @@ struct Component InitializeIComponent (enum ComponentType type, struct Register 
  * @param  mask  The mask of pins to be initialized.
  * @return       The initialized component.
  */
-struct Component InitializeOComponent (enum ComponentType type, struct Register *reg, unsigned char *ddreg, unsigned char *port, unsigned char mask);
+struct Component InitializeOComponent (enum ComponentType type, struct Register *reg, volatile uint8_t *ddreg, volatile uint8_t *port, unsigned char mask);
 
 #endif

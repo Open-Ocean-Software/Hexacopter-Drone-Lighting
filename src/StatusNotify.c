@@ -1,18 +1,18 @@
 
-#include "Components/PWM/StatusNotify.h"
+#include "Components.h"
 #include "Helpers/PWMHelper.h"
 
-void Handler_NotifyStatusR (struct PWMComponent *comp, unsigned char t)
+void Handler_NotifyStatusR (struct Component *comp, unsigned char t)
 {
     PWMHandlerHelper(comp, t);
 }
 
-void Handler_NotifyStatusG (struct PWMComponent *comp, unsigned char t)
+void Handler_NotifyStatusG (struct Component *comp, unsigned char t)
 {
     PWMHandlerHelper(comp, t);
 }
 
-void Handler_NotifyStatusB (struct PWMComponent *comp, unsigned char t)
+void Handler_NotifyStatusB (struct Component *comp, unsigned char t)
 {
     PWMHandlerHelper(comp, t);
 }

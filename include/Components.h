@@ -23,6 +23,11 @@
 
 
 
-extern struct Component Components [];
+extern struct Component *Components [];
+
+/**
+ * Initializes all components.
+ */
+void InitializeComponents (void);
 
 #endif

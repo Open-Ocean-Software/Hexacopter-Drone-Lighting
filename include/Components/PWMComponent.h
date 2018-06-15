@@ -4,7 +4,7 @@
 
 #include "../Component.h"
 
-typedef void (*PWMHandler) (struct PWMComponent *comp, unsigned char t);
+typedef void (*PWMHandler) (struct Component *comp, unsigned char t);
 
 struct PWMComponent
 {
@@ -18,6 +18,6 @@ struct PWMComponent
  * @param  handler The handler pointer to be called on system cycles
  * @return         The initialized PWM component
  */
-struct PWMComponent InitializePWMComponent (struct Component comp, PWMHandler handler);
+struct PWMComponent *InitializePWMComponent (struct Component comp, PWMHandler handler);
 
 #endif

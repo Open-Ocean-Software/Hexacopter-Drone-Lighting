@@ -1,8 +1,8 @@
 
-#include "Components/PWM/CameraLevelLaser.h"
+#include "Components.h"
 #include "Helpers/PWMHelper.h"
 
-void Handler_LaserCameraLevel (struct PWMComponent *comp, unsigned char t)
+void Handler_LaserCameraLevel (struct Component *comp, unsigned char t)
 {
     PWMHandlerHelper(comp, t);
 }

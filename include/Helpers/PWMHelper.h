@@ -9,6 +9,6 @@
  * @param comp The PWM Component to process.
  * @param t    The current time progress through the duty cycle.
  */
-void PWMHandlerHelper (struct PWMComponent *comp, unsigned char t);
+void PWMHandlerHelper (struct Component *comp, unsigned char t);
 
 #endif
