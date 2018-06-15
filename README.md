@@ -384,12 +384,12 @@ to consult other component code):
      - Example (digital):
      ```c
      #define HANDLER_MYCOMPONENT &Handler_MyComponent
-     void Handler_MyComponent (struct DigitalComponent comp);
+     void Handler_MyComponent (struct Component comp);
      ```
      - Example (PWM):
      ```c
      #define HANDLER_MYCOMPONENT &Handler_MyComponent
-     void Handler_MyComponent (struct PWMComponent comp, unsigned char t);
+     void Handler_MyComponent (struct Component comp, unsigned char t);
      ```
 2. Add and register your component in "/include/Components/DigitalComponents.h"
    for digital components or "/include/Components/PWMComponents.h" for PWM
