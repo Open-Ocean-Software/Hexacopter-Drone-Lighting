@@ -4,5 +4,7 @@
 
 void Handler_FloodlightCamera (struct Component *comp, unsigned char t)
 {
-    PWMHandlerHelper(comp, t);
+    if (Reg_Control_GetEnabledUtilities()) {
+        PWMHandlerHelper(comp, t);
+    }
 }

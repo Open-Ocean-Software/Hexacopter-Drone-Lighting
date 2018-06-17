@@ -2,7 +2,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Register.h"
+#include "Registers.h"
 
 #include <stdint.h>
 

@@ -24,11 +24,13 @@ void setShiftRegister (volatile uint8_t *Port, unsigned char mask, unsigned char
 
 void Handler_LightStrip_Select (struct Component *comp, unsigned char t)
 {
-    unsigned char regval = FindRegister((*comp).RegisterAddress)->Value;
-    if ((*comp).SavedValue != regval) {
-        setShiftRegister((*comp).Port, (*comp).Mask, regval);
+    if (Reg_Control_GetEnabledStrips()) {
+        unsigned char regval = FindRegister((*comp).RegisterAddress)->Value;
+        if ((*comp).SavedValue != regval) {
+            setShiftRegister((*comp).Port, (*comp).Mask, regval);
+        }
+        (*comp).SavedValue = regval;
     }
-    (*comp).SavedValue = regval;
 }
 
 void Handler_LightStrip_Data (struct Component *comp, unsigned char t) { }
