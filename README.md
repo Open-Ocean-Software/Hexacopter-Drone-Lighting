@@ -235,6 +235,12 @@ instructions below (it may also help to consult other register code):
    the built-in functions defined in "/include/Register.h" and
    "/include/Registers.h".
 
+## Saving Registers
+As mentioned before, the registers have the capability to be saved between
+power cycles in the EEPROM.  This feature is built into the controller.  The
+values are loaded when the controller is powered on, and they are saved when
+the control register is set to disabled and the module enters standby.
+
 ## Presets
 Presets are a built-in way to control the entire functionality of the module
 without the need to have continuous communication with the module.  The presets

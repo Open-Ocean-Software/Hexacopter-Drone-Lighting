@@ -18,6 +18,11 @@
 
 #define CONFIG_COMPONENTS_SHIFTREGSETPERIOD 1       // Period of delay for the set pin of the shift registers' signal [ms]
 
+#define CONFIG_STORAGE_EEPROMSTARTINDEX 1
+#define CONFIG_STORAGE_EEPROMDATASIZE 2
+#define CONFIG_STORAGE_EEPROMSTARTCODE 0xFF
+#define CONFIG_STORAGE_EEPROMENDCODE 0xFF
+
 #define CONFIG_F_CPU 16000000UL                     // The frequency of the CPU [Hz]
 
 #endif

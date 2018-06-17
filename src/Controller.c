@@ -5,6 +5,7 @@
 #include "Components.h"
 #include "Communications.h"
 #include "Presets.h"
+#include "Storage.h"
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -48,12 +49,14 @@ void executePresets (void)
 
 void Activity (void)
 {
+    LoadRegisters(Registers, REGISTERLIST_COUNT);
     InitializeComponents();
     while (Reg_Control_GetEnabled()) {
         ReadCommunications();
         executeComponents();
         executePresets();
     }
+    SaveRegisters(Registers, REGISTERLIST_COUNT);
 }
 
 void Standby (void)
