@@ -47,12 +47,25 @@ void executePresets (void)
     presetCodeSave = presetCode;
 }
 
+void executeExecutables (void)
+{
+    if (Reg_Control_GetReset()) {
+        ResetRegisters(Registers, REGISTERLIST_COUNT);
+    }
+    if (Reg_Control_GetAllOff()) {
+        Reg_Preset_SetCode(PRESET_OFF);
+    } else if (Reg_Control_GetAllOn()) {
+        Reg_Preset_SetCode(PRESET_ON);
+    }
+}
+
 void Activity (void)
 {
     LoadRegisters(Registers, REGISTERLIST_COUNT);
     InitializeComponents();
     while (Reg_Control_GetEnabled()) {
         ReadCommunications();
+        executeExecutables();
         executeComponents();
         executePresets();
     }

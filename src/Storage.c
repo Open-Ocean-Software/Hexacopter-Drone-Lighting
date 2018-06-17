@@ -66,7 +66,7 @@ unsigned char TryLoadRegisterValue (unsigned char id, unsigned char *value)
     return 0x00;
 }
 
-unsigned char SaveRegisterValue (struct Register reg)
+unsigned char SaveRegisterValue (unsigned char id, unsigned char value)
 {
     unsigned char dataIndex;
     unsigned char regid;
@@ -75,13 +75,13 @@ unsigned char SaveRegisterValue (struct Register reg)
         dataIndex = CONFIG_STORAGE_EEPROMSTARTINDEX + i * CONFIG_STORAGE_EEPROMDATASIZE;
         regid = eepromRead(dataIndex);
         if (regid == CONFIG_STORAGE_EEPROMENDCODE) {
-            eepromWrite(dataIndex, reg.Id);
-            eepromWrite(dataIndex + 1, reg.Value);
+            eepromWrite(dataIndex, id);
+            eepromWrite(dataIndex + 1, value);
             eepromWrite(dataIndex + CONFIG_STORAGE_EEPROMDATASIZE, CONFIG_STORAGE_EEPROMENDCODE);
             return 0x01;
         }
-        if (regid == reg.Id) {
-            eepromWrite(dataIndex + 1, reg.Value);
+        if (regid == id) {
+            eepromWrite(dataIndex + 1, value);
             return 0x01;
         }
     }
@@ -105,7 +105,18 @@ unsigned char SaveRegisters (struct Register *reg, unsigned char count)
 {
     unsigned char success = 0;
     for (unsigned char i = 0; i < count; i++) {
-        if (SaveRegisterValue(*reg)) {
+        if (SaveRegisterValue(reg->Id, reg->Value)) {
+            success++;
+        }
+    }
+    return success;
+}
+
+unsigned char ResetRegisters (struct Register *reg, unsigned char count)
+{
+    unsigned char success = 0;
+    for (unsigned char i = 0; i < count; i++) {
+        if (SaveRegisterValue(reg->Id, reg->DefaultValue)) {
             success++;
         }
     }
