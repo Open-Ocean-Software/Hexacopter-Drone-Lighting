@@ -292,11 +292,11 @@ the instructions below (it may help to consult other preset code):
      ```
    - Define the register's handler macro.  This is called periodically based on
      the value of `CONFIG_PRESETS_CALLBACKPERIOD` in the configuration.  The
-     handler macro defines the address of the callback function which takes a
-     total elapsed time as its only argument and returns void.
+     handler macro defines the callback function which takes a total elapsed
+     time as its only argument and returns void.
      - Example:
      ```c
-     #define PRESET_MYPRESET_HANDLER &Preset_MyPreset_Handler
+     #define PRESET_MYPRESET_HANDLER Preset_MyPreset_Handler
      void Preset_MyPreset_Handler (double t);
      ```
 2. Add and register the preset in "/include/Presets.h"
@@ -378,15 +378,9 @@ to consult other component code):
      ```
    - Define a handler address macro.  This is the address of the function called
      on every system cycle to execute the necessary actions.  It takes the
-     active component as an argument and returns void for digital components,
-     and it takes the active component and elapsed duty in milliseconds as the
-     arguments and returns void for PWM components.
-     - Example (digital):
-     ```c
-     #define HANDLER_MYCOMPONENT &Handler_MyComponent
-     void Handler_MyComponent (struct Component comp);
-     ```
-     - Example (PWM):
+     active component and elapsed duty in milliseconds as the arguments and
+     returns void.
+     - Example:
      ```c
      #define HANDLER_MYCOMPONENT &Handler_MyComponent
      void Handler_MyComponent (struct Component comp, unsigned char t);
@@ -411,7 +405,7 @@ to consult other component code):
      ```c
      #define COMPONENTLIST_DIGITAL  BLAH..., \
                                     BLAH..., \
-                                    InitializeDigitalComponent(InitializeOComponent(Digital, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
+                                    InitializeOComponent(Digital, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT, HANDLER_MYCOMPONENT), \
                                     BLAH..., \
                                     BLAH...
      ```
@@ -419,7 +413,7 @@ to consult other component code):
      ```c
      #define COMPONENTLIST_PWM   BLAH..., \
                                  BLAH..., \
-                                 InitializePWMComponent(InitializeOComponent(PWM, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT), HANDLER_MYCOMPONENT), \
+                                 InitializeOComponent(PWM, *FindRegister(REGID_MYCOMPONENT), &DDR_MYCOMPONENT, &PORT_MYCOMPONENT, MASK_MYCOMPONENT, HANDLER_MYCOMPONENT), \
                                  BLAH..., \
                                  BLAH...
      ```
