@@ -2,8 +2,12 @@
 #include "Components.h"
 #include "Config.h"
 #include "Registers.h"
+#include "Controller.h"
 
-void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char val)
+#include <util/delay.h>
+#include <stdint.h>
+
+void setShiftRegister (volatile uint8_t *Port, unsigned char mask, unsigned char val)
 {
     for (unsigned char i = 0; i < sizeof(unsigned char); i++) {
         if (val & (1 << i)) {
@@ -20,7 +24,6 @@ void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char va
 
 void Handler_LightStrip_Select (struct Component *comp, unsigned char t)
 {
-    unsigned char regval = *comp->*Register->Value;
     unsigned char regval = FindRegister((*comp).RegisterAddress)->Value;
     if ((*comp).SavedValue != regval) {
         setShiftRegister((*comp).Port, (*comp).Mask, regval);

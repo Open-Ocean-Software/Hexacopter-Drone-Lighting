@@ -23,10 +23,10 @@ void Prest_Corrected_Handler (double t)
         Reg_LightStripsBBlue_Set(code);
     } else {
         Reg_LightStripsERed_Set(0x00);
-        Reg_LightStripsEGreen(0xFF);
+        Reg_LightStripsEGreen_Set(0xFF);
         Reg_LightStripsEBlue_Set(0x00);
         Reg_LightStripsBRed_Set(0x00);
-        Reg_LightStripsBGreen(0xAA);
+        Reg_LightStripsBGreen_Set(0xAA);
         Reg_LightStripsBBlue_Set(0x00);
     }
     Reg_StatNotifyR_Set(0x00);

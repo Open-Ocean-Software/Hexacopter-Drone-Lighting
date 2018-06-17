@@ -2,9 +2,11 @@
 #include "Presets.h"
 #include "Registers.h"
 
+#include <math.h>
+
 void Preset_Emit_Handler (double t)
 {
-    static const double d = PRESET_SPIN_DURATION;
+    static const double d = PRESET_EMIT_DURATION;
     static const int cycles = 7;
     static const double period = d / (double)cycles;
     unsigned char cycleIndex = (unsigned char)(t / period);
