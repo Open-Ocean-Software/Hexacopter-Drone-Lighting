@@ -2,7 +2,7 @@
 #include "Presets.h"
 #include "Registers.h"
 
-void Preset_OnHandler (double t)
+void Preset_On_Handler (double t)
 {
     Reg_LightStripsERed_Set(0xFF);
     Reg_LightStripsEGreen_Set(0xFF);

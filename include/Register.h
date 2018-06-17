@@ -15,7 +15,7 @@ struct Register
  * @param  defaultval The default value of the reigster.
  * @return            The new register.
  */
-struct Register InitializeRegister (unsigned char id, unsigned char defaultval);
+#define InitializeRegister(id, defaultval) { id, 0x00, defaultval }
 
 /**
  * Set the value of a register.

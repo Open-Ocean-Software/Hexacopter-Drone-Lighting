@@ -4,7 +4,7 @@
 
 #include <math.h>
 
-void Prest_Corrected_Handler (double t)
+void Preset_Corrected_Handler (double t)
 {
     static const double d = PRESET_CORRECTED_DURATION;
     static const double progTime = d * 0.75;

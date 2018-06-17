@@ -19,6 +19,6 @@ struct Preset
  * @param  callback The routine callback on system cycles.
  * @return          The new preset.
  */
-#define InitializePreset(id, duration, callback) { id, 0.0, duration, callback }
+#define InitializePreset(id, duration, callback) { id, 0.0, duration, &callback }
 
 #endif
