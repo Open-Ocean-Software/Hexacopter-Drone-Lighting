@@ -6,17 +6,17 @@ struct Preset Presets [PRESET_LIST_COUNT] = { PRESET_LIST };
 struct Preset *FindPreset (unsigned char id)
 {
     for (unsigned char i = 0; i < PRESET_LIST_COUNT; i++) {
-        if (Presets[i]->Id == id) {
+        if (Presets[i].Id == id) {
             return &(Presets[i]);
         }
     }
-    return NULL;
+    return 0;
 }
 
 unsigned char PresetExists (unsigned char id)
 {
     for (unsigned char i = 0; i < PRESET_LIST_COUNT; i++) {
-        if (Presets[i]->Id == id) {
+        if (Presets[i].Id == id) {
             return 0x01;
         }
     }
