@@ -96,6 +96,6 @@ struct Register *RegisterFlagGet (unsigned char id, unsigned char mask, unsigned
  * @param  mask The mask to be returned.
  * @return      The value of the register.
  */
-unsigned char *RegisterFlagGetValue (unsigned char id, unsigned char mask);
+unsigned char RegisterFlagGetValue (unsigned char id, unsigned char mask);
 
 #endif

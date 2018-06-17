@@ -3,6 +3,7 @@
 #include "Config.h"
 #include "Registers.h"
 #include "Components.h"
+#include "Communications.h"
 #include "Presets.h"
 
 #include <avr/io.h>
@@ -29,7 +30,7 @@ void executePresets (void)
         return;
     }
 
-    struct Preset *preset = *FindPreset(presetCode);
+    struct Preset *preset = FindPreset(presetCode);
     if (presetCode != presetCodeSave) {
         preset->StartTime = ReadStopwatch();
     }
