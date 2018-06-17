@@ -1,0 +1,54 @@
+
+#ifndef PRESETS_H
+#define PRESETS_H
+
+#include "Preset.h"
+#include "Registers.h"
+
+/////////////////
+// Add Presets //
+/////////////////
+#include "Presets/Alert.h"
+#include "Presets/Bounce.h"
+#include "Presets/Corrected.h"
+#include "Presets/Danger.h"
+#include "Presets/Flash.h"
+#include "Presets/Off.h"
+#include "Presets/On.h"
+#include "Presets/Emit.h"
+#include "Presets/Warning.h"
+
+//////////////////////
+// Register Presets //
+//////////////////////
+#define PRESET_LIST     InitializePreset(PRESET_OFF, PRESET_OFF_DURATION, PRESET_OFF_HANDLER), \
+                        InitializePreset(PRESET_ON, PRESET_ON_DURATION, PRESET_ON_HANDLER), \
+                        InitializePreset(PRESET_EMIT, PRESET_EMIT_DURATION, PRESET_EMIT_HANDLER), \
+                        InitializePreset(PRESET_BOUNCE, PRESET_BOUNCE_DURATION, PRESET_BOUNCE_HANDLER), \
+                        InitializePreset(PRESET_FLASH, PRESET_FLASH_DURATION, PRESET_FLASH_HANDLER), \
+                        InitializePreset(PRESET_CORRECTED, PRESET_CORRECTED_DURATION, PRESET_CORRECTED_HANDLER), \
+                        InitializePreset(PRESET_ALERT, PRESET_ALERT_DURATION, PRESET_ALERT_HANDLER), \
+                        InitializePreset(PRESET_WARNING, PRESET_WARNING_DURATION, PRESET_WARNING_HANDLER), \
+                        InitializePreset(PRESET_DANGER, PRESET_DANGER_DURATION, PRESET_DANGER_HANDLER)
+
+#define PRESET_LIST_COUNT 9
+
+
+
+extern struct Preset Presets [];
+
+/**
+ * Gets the first preset matching the ID.
+ * @param  id The ID to match.
+ * @return    A pointer to the preset.
+ */
+struct Preset *FindPreset (unsigned char id);
+
+/**
+ * Checks if the preset exists.
+ * @param  id The ID to match
+ * @return    A success value.
+ */
+unsigned char PresetExists (unsigned char id);
+
+#endif
