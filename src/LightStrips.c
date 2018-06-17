@@ -1,6 +1,7 @@
 
 #include "Components.h"
 #include "Config.h"
+#include "Registers.h"
 
 void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char val)
 {
@@ -17,14 +18,14 @@ void setShiftRegister (unsigned char *Port, unsigned char mask, unsigned char va
     }
 }
 
-void Handler_LightStrip_Select (struct Component *comp)
+void Handler_LightStrip_Select (struct Component *comp, unsigned char t)
 {
-    struct Component *c = (struct Component *)comp;
-    unsigned char regval = *c->*Register->Value;
-    if (*c->SavedValue != regval) {
-        setShiftRegister(*c->Port, *c->Mask, regval);
+    unsigned char regval = *comp->*Register->Value;
+    unsigned char regval = FindRegister((*comp).RegisterAddress)->Value;
+    if ((*comp).SavedValue != regval) {
+        setShiftRegister((*comp).Port, (*comp).Mask, regval);
     }
-    *c->SavedValue = regval;
+    (*comp).SavedValue = regval;
 }
 
-void Handler_LightStrip_Data (struct Component *comp) { }
+void Handler_LightStrip_Data (struct Component *comp, unsigned char t) { }

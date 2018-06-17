@@ -2,6 +2,11 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#ifndef F_CPU
+#include "Config.h"
+#define F_CPU CONFIG_F_CPU
+#endif
+
 /**
  * The main activity of the module while it is enabled.
  */

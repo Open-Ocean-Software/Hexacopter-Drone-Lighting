@@ -16,14 +16,14 @@
 /////////////////////////
 // Register Components //
 /////////////////////////
-#define COMPONENTLIST   COMPONENTS_DIGITAL, \
-                        COMPONENTS_PWM
+#define COMPONENTLIST   COMPONENTLIST_DIGITAL, \
+                        COMPONENTLIST_PWM
 
 #define COMPONENTLIST_COUNT COMPONENTLIST_DIGITAL_COUNT + COMPONENTLIST_PWM_COUNT
 
 
 
-extern struct Component *Components [];
+extern struct Component Components [];
 
 /**
  * Initializes all components.

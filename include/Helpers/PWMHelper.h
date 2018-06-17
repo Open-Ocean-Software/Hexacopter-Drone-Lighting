@@ -2,8 +2,6 @@
 #ifndef PWMHELPER_H
 #define PWMHELPER_H
 
-#include "../Components/PWMComponent.h"
-
 /**
  * Helps process duty cycles of PWM components.
  * @param comp The PWM Component to process.

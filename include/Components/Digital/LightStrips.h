@@ -5,47 +5,47 @@
 #define DDR_LIGHTSTRIP_DATA DDRD
 #define PORT_LIGHTSTRIP_DATA PORTD
 #define MASK_LIGHTSTRIP_DATA (1 << PD0)
-#define HANDLER_LIGHTSTRIP_DATA &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_DATA Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISR DDRD
 #define PORT_LIGHTSTRIP_EMPHASISR PORTD
 #define MASK_LIGHTSTRIP_EMPHASISR (1 << PD1)
-#define HANDLER_LIGHTSTRIP_EMPHASISR &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_EMPHASISR Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISG DDRD
 #define PORT_LIGHTSTRIP_EMPHASISG PORTD
 #define MASK_LIGHTSTRIP_EMPHASISG (1 << PD2)
-#define HANDLER_LIGHTSTRIP_EMPHASISG &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_EMPHASISG Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_EMPHASISB DDRD
 #define PORT_LIGHTSTRIP_EMPHASISB PORTD
 #define MASK_LIGHTSTRIP_EMPHASISB (1 << PD3)
-#define HANDLER_LIGHTSTRIP_EMPHASISB &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_EMPHASISB Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDR DDRD
 #define PORT_LIGHTSTRIP_BACKGROUNDR PORTD
 #define MASK_LIGHTSTRIP_BACKGROUNDR (1 << PD4)
-#define HANDLER_LIGHTSTRIP_BACKGROUNDR &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_BACKGROUNDR Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDG DDRD
 #define PORT_LIGHTSTRIP_BACKGROUNDG PORTD
 #define MASK_LIGHTSTRIP_BACKGROUNDG (1 << PD5)
-#define HANDLER_LIGHTSTRIP_BACKGROUNDG &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_BACKGROUNDG Handler_LightStrip_Select
 
 
 #define DDR_LIGHTSTRIP_BACKGROUNDB DDRD
 #define PORT_LIGHTSTRIP_BACKGROUNDB PORTD
 #define MASK_LIGHTSTRIP_BACKGROUNDB (1 << PD6)
-#define HANDLER_LIGHTSTRIP_BACKGROUNDB &Handler_LightStrip_Select
+#define HANDLER_LIGHTSTRIP_BACKGROUNDB Handler_LightStrip_Select
 
 
 
-void Handler_LightStrip_Data (struct Component *comp);
-void Handler_LightStrip_Select (struct Component *comp);
+void Handler_LightStrip_Data (struct Component *comp, unsigned char t);
+void Handler_LightStrip_Select (struct Component *comp, unsigned char t);
 
 #endif

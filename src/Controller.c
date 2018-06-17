@@ -7,20 +7,14 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <avr/delay.h>
+#include <util/delay.h>
 
 
 void executeComponents (void)
 {
     for (unsigned char i = 0; i < COMPONENTLIST_COUNT; i++) {
-        struct Component comp = Components[i];
-        if (comp->Type == Digital) {
-            struct DigitalComponent dcomp = (struct DigitalComponent)comp;
-            dcomp->Handler(dcomp);
-        } else if (comp->Type == PWM) {
-            struct PWMComponent pcomp = (struct PWMComponent)comp;
-            pcomp->Handler(pcomp, ReadStopwatch());
-        }
+        struct Component *comp = &Components[i];
+        comp->Handler(comp, ReadStopwatch());
     }
 }
 
@@ -37,22 +31,23 @@ void executePresets (void)
 
     struct Preset *preset = *FindPreset(presetCode);
     if (presetCode != presetCodeSave) {
-        (*preset)->StartTime = ReadStopwatch();
+        preset->StartTime = ReadStopwatch();
     }
-    if (ReadStopwatch() - (*preset)->StartTime >= (*preset)->MaxDuration) {
+    if (ReadStopwatch() - preset->StartTime >= preset->MaxDuration) {
         if (Reg_Preset_GetPersist()) {
-            (*preset)->StartTime = ReadStopwatch();
+            preset->StartTime = ReadStopwatch();
         } else {
             Reg_Preset_SetCode(0x00);
         }
     }
 
-    (*preset)->Callback(ReadStopwatch());
+    preset->Callback(ReadStopwatch());
     presetCodeSave = presetCode;
 }
 
 void Activity (void)
 {
+    InitializeComponents();
     while (Reg_Control_GetEnabled()) {
         ReadCommunications();
         executeComponents();
