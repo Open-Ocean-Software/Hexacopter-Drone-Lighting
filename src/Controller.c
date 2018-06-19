@@ -14,9 +14,13 @@
 
 void executeComponents (void)
 {
+    double t;
+    double cycleProg;
     for (unsigned char i = 0; i < COMPONENTLIST_COUNT; i++) {
+        t = ReadStopwatch();
+        cycleProg = t - (double)((int)(t / CONFIG_CONTROLLER_PWMFREQUENCY));
         struct Component *comp = &Components[i];
-        comp->Handler(comp, ReadStopwatch());
+        comp->Handler(comp, (int)(t * CONFIG_CONTROLLER_CYCLEPRESCALER));
     }
 }
 

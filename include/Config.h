@@ -5,6 +5,8 @@
 #define CONFIG_CONTROLLER_STANDBYTIMEOUT 0.25       // Time waited between system cycles on timeout
 #define CONFIG_CONTROLLER_SWPRESCALER 64            // The prescaler for the stopwatch (F_CPU / VALUE) = clock frequency
 #define CONFIG_CONTROLLER_SWFREQUENCY 1000          // The stopwatch clock frequency
+#define CONFIG_CONTROLLER_PWMFREQUENCY 60
+#define CONFIG_CONTROLLER_CYCLEPRESCALER (256.0 / (double)CONFIG_CONTROLLER_PWMFREQUENCY)
 
 #define CONFIG_COMMUNICATIONS_MODEMASK 0x80         // The R/W mask for communications
 #define CONFIG_COMMUNICATIONS_READMODE 0x00         // The value of the masked communications address on read
